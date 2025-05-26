@@ -1,12 +1,12 @@
 steps:
   # 1. Build Docker image untuk backend
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "--cache-from", "gcr.io/$PROJECT_ID/notes-backend-wijdan", "-t", "gcr.io/$PROJECT_ID/notes-backend-wijdan:${SHORT_SHA}", "."]
+    args: ["build", "--cache-from", "gcr.io/$PROJECT_ID/tcc-tgs7", "-t", "gcr.io/$PROJECT_ID/tcc-tgs7:${SHORT_SHA}", "."]
     dir: "notes_be"
 
   # 2. Push ke Container Registry / Artifact Registry
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/$PROJECT_ID/notes-backend-wijdan:${SHORT_SHA}"]
+    args: ["push", "gcr.io/$PROJECT_ID/tcc-tgs7:${SHORT_SHA}"]
 
   # 3. Deploy ke Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
@@ -17,7 +17,7 @@ steps:
         "deploy",
         "notes-backend-wijdan",
         "--image",
-        "gcr.io/$PROJECT_ID/notes-backend-wijdan:${SHORT_SHA}",
+        "gcr.io/$PROJECT_ID/tcc-tgs7:${SHORT_SHA}",
         "--timeout",
         "1000s",
         "--port",
