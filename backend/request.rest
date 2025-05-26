@@ -1,0 +1,68 @@
+# Register
+POST http://localhost:3000/api/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+###
+
+# Login
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+###
+
+# Get Profile
+GET http://localhost:3000/api/profile
+Authorization: Bearer <token>
+
+###
+
+# Create Note
+POST http://localhost:3000/api/notes
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "title": "First Note",
+  "content": "This is my first note"
+}
+
+###
+
+# Get All Notes
+GET http://localhost:3000/api/notes
+Authorization: Bearer <token>
+
+###
+
+# Get Note by ID
+GET http://localhost:3000/api/notes/1
+Authorization: Bearer <token>
+
+###
+
+# Update Note
+PUT http://localhost:3000/api/notes/1
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "title": "Updated Note",
+  "content": "This note has been updated"
+}
+
+###
+
+# Delete Note
+DELETE http://localhost:3000/api/notes/1
+Authorization: Bearer <token>

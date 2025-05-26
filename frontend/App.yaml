@@ -1,0 +1,14 @@
+runtime: nodejs18
+service: notes-fe
+
+handlers:
+- url: /
+  static_files: dist/index.html
+  upload: dist/index.html
+
+- url: /
+  static_dir: dist
+
+- url: /.*
+  static_files: dist/index.html
+  upload: dist/index.html
